@@ -28,18 +28,24 @@ namespace t
 
             douCM = Convert.ToDouble(txtCM.Text); //從txtCM輸入文字框取得輸入的文字，並且轉換成double的資料型態
 
-            txtM.Text = string.Format("{0:0.##########}", douCM / 100);
-            //將douCM的數值除以100，也就是從公分轉換成公尺
+            txtM.Text = string.Format("{0:0.##########}", douCM / 100);//公尺
+            txtKM.Text = string.Format("{0:0.##########}", douCM / 100000);//公里
+            txtIn.Text = string.Format("{0:0.##########}", douCM / 2.54);//英吋
+            txtFt.Text = string.Format("{0:0.##########}", douCM / 30.48);//英呎
+            txtYard.Text = string.Format("{0:0.##########}", douCM / 91.44);//碼
         }
 
         private void txtM_KeyUp(object sender, KeyEventArgs e)
         {
-            double douM; //宣告一個double變數，變數名稱叫douCM
+            double douM; //宣告一個double變數，變數名稱叫douM
 
             douM = Convert.ToDouble(txtM.Text); //從txtM輸入文字框取得輸入的文字，並且轉換成double的資料型態
 
-            txtCM.Text = string.Format("{0:0.##########}", douM / 0.01);
-            //將douCM的數值除以100，也就是從公分轉換成公尺
+            txtCM.Text = string.Format("{0:0.##########}", douM / 0.01);//公分
+            txtKM.Text = string.Format("{0:0.##########}", douM / 1000);//公里
+            txtIn.Text = string.Format("{0:0.##########}", douM / 0.0254);//英吋
+            txtFt.Text = string.Format("{0:0.##########}", douM / 0.3048);//英呎
+            txtYard.Text = string.Format("{0:0.##########}", douM / 0.9144);//碼
         }
     }
 }
