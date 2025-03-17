@@ -83,8 +83,21 @@ namespace t
             txtCM.Text = string.Format("{0:0.##########}", douFt * 30.48);//公分
             txtM.Text = string.Format("{0:0.##########}", douFt * 0.3048);//公尺
             txtKM.Text = string.Format("{0:0.##########}", douFt * 0.0003048);//公里
-            txtIn.Text = string.Format("{0:0.##########}", douFt * 12);//英呎
+            txtIn.Text = string.Format("{0:0.##########}", douFt * 12);//英吋
             txtYard.Text = string.Format("{0:0.##########}", douFt * 0.3333);//碼
+        }
+
+        private void txtYard_KeyUp(object sender, KeyEventArgs e)
+        {
+            double douYard; //宣告一個double變數，變數名稱叫douYard
+
+            douYard = Convert.ToDouble(txtYard.Text); //從txtYard輸入文字框取得輸入的文字，並且轉換成double的資料型態
+
+            txtCM.Text = string.Format("{0:0.##########}", douYard * 91.44);//公分
+            txtM.Text = string.Format("{0:0.##########}", douYard * 0.9144);//公尺
+            txtKM.Text = string.Format("{0:0.##########}", douYard * 0.0009144);//公里
+            txtIn.Text = string.Format("{0:0.##########}", douYard * 36);//英吋
+            txtFt.Text = string.Format("{0:0.##########}", douYard * 3);//英呎
         }
     }
 }
