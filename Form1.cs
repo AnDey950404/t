@@ -99,5 +99,15 @@ namespace t
             txtIn.Text = string.Format("{0:0.##########}", douYard * 36);//英吋
             txtFt.Text = string.Format("{0:0.##########}", douYard * 3);//英呎
         }
+
+        private void btnAllClear_Click(object sender, EventArgs e)
+        {
+            txtCM.Text = "";
+            txtM.Text = "";
+            txtKM.Text = "";
+            txtIn.Text = "";
+            txtFt.Text = "";
+            txtYard.Text = "";
+        }
     }
 }
