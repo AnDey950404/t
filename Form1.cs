@@ -60,5 +60,31 @@ namespace t
             txtFt.Text = string.Format("{0:0.##########}", douKM / 0.0003048);//英呎
             txtYard.Text = string.Format("{0:0.##########}", douKM / 0.0009144);//碼
         }
+
+        private void txtIn_KeyUp(object sender, KeyEventArgs e)
+        {
+            double douIn; //宣告一個double變數，變數名稱叫douIn
+
+            douIn = Convert.ToDouble(txtIn.Text); //從txtIn輸入文字框取得輸入的文字，並且轉換成double的資料型態
+
+            txtCM.Text = string.Format("{0:0.##########}", douIn * 2.54);//公分
+            txtM.Text = string.Format("{0:0.##########}", douIn * 0.0254);//公尺
+            txtKM.Text = string.Format("{0:0.##########}", douIn * 0.0000254);//公里
+            txtFt.Text = string.Format("{0:0.##########}", douIn * 0.0833);//英呎
+            txtYard.Text = string.Format("{0:0.##########}", douIn * 0.0278);//碼
+        }
+
+        private void txtFt_KeyUp(object sender, KeyEventArgs e)
+        {
+            double douFt; //宣告一個double變數，變數名稱叫douFt
+
+            douFt = Convert.ToDouble(txtFt.Text); //從txtFt輸入文字框取得輸入的文字，並且轉換成double的資料型態
+
+            txtCM.Text = string.Format("{0:0.##########}", douFt * 30.48);//公分
+            txtM.Text = string.Format("{0:0.##########}", douFt * 0.3048);//公尺
+            txtKM.Text = string.Format("{0:0.##########}", douFt * 0.0003048);//公里
+            txtIn.Text = string.Format("{0:0.##########}", douFt * 12);//英呎
+            txtYard.Text = string.Format("{0:0.##########}", douFt * 0.3333);//碼
+        }
     }
 }
