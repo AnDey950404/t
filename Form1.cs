@@ -34,7 +34,12 @@ namespace t
 
         private void txtM_KeyUp(object sender, KeyEventArgs e)
         {
-            
+            double douM; //宣告一個double變數，變數名稱叫douCM
+
+            douM = Convert.ToDouble(txtM.Text); //從txtM輸入文字框取得輸入的文字，並且轉換成double的資料型態
+
+            txtCM.Text = string.Format("{0:0.##########}", douM / 0.01);
+            //將douCM的數值除以100，也就是從公分轉換成公尺
         }
     }
 }
