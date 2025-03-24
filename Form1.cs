@@ -26,154 +26,101 @@ namespace t
         string strInput; // 字串型態的strInput變數
         double douOutput; // double浮點數型態的douOutput變數
 
-        void caculateAnswer(int 參數1, double 參數2)
-        {
-            txtM.Text = string.Format("{0:0.##########}", 參數2 / 100);//公尺
-            txtKM.Text = string.Format("{0:0.##########}", 參數2 / 100000);//公里
-            txtIn.Text = string.Format("{0:0.##########}", 參數2 / 2.54);//英吋
-            txtFt.Text = string.Format("{0:0.##########}", 參數2 / 30.48);//英呎
-            txtYard.Text = string.Format("{0:0.##########}", 參數2 / 91.44);//碼
-        }
-
+        
         private void txtCM_KeyUp(object sender, KeyEventArgs e)
         {
-            double douCM; //宣告一個double變數，變數名稱叫douCM
+            strInput = txtCM.Text;
+
+            if (double.TryParse(strInput, out douOutput) == true)
             {
-
-                strInput = txtCM.Text;
-
-                if (double.TryParse(strInput, out douOutput) == true)
-                {
-
-                    //txtM.Text = string.Format("{0:0.##########}", douOutput / 100);//公尺
-                    //txtKM.Text = string.Format("{0:0.##########}", douOutput / 100000);//公里
-                    //txtIn.Text = string.Format("{0:0.##########}", douOutput / 2.54);//英吋
-                    //txtFt.Text = string.Format("{0:0.##########}", douOutput / 30.48);//英呎
-                    //txtYard.Text = string.Format("{0:0.##########}", douOutput / 91.44);//碼
-
-                    caculateAnswer(0, douOutput);
-                }
-                else
-                {
-                    // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
-                    txtInfo.Text = "請輸入數字";
-                    txtCM.Text = "";
-                }
+                caculateAnswer(0, douOutput);
             }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtCM.Text = "";
+            }
+            
         }
 
         private void txtM_KeyUp(object sender, KeyEventArgs e)
         {
-            double douM; //宣告一個double變數，變數名稱叫douM
-            {
-                strInput = txtM.Text;
+            strInput = txtM.Text;
 
-                if (double.TryParse(strInput, out douOutput) == true)
-                {
-                    txtCM.Text = string.Format("{0:0.##########}", douOutput / 0.01);//公分
-                    txtKM.Text = string.Format("{0:0.##########}", douOutput / 1000);//公里
-                    txtIn.Text = string.Format("{0:0.##########}", douOutput / 0.0254);//英吋
-                    txtFt.Text = string.Format("{0:0.##########}", douOutput / 0.3048);//英呎
-                    txtYard.Text = string.Format("{0:0.##########}", douOutput / 0.9144);//碼
-                }
-                else
-                {
-                    // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
-                    txtInfo.Text = "請輸入數字";
-                    txtM.Text = "";
-                }
+            if(double.TryParse(strInput, out douOutput) == true)
+            {
+                caculateAnswer(1, douOutput * 100);
+            }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtCM.Text = "";
             }
         }
 
         private void txtKM_KeyUp(object sender, KeyEventArgs e)
         {
-            double douKM; //宣告一個double變數，變數名稱叫douKM
-            {
-                strInput = txtKM.Text;
+            strInput = txtKM.Text;
 
-                if (double.TryParse(strInput, out douOutput) == true)
-                {
-                    txtCM.Text = string.Format("{0:0.##########}", douOutput / 0.00001);//公分
-                    txtM.Text = string.Format("{0:0.##########}", douOutput / 0.001);//公尺
-                    txtIn.Text = string.Format("{0:0.##########}", douOutput / 0.0000254);//英吋
-                    txtFt.Text = string.Format("{0:0.##########}", douOutput / 0.0003048);//英呎
-                    txtYard.Text = string.Format("{0:0.##########}", douOutput / 0.0009144);//碼
-                }
-                else
-                {
-                    // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
-                    txtInfo.Text = "請輸入數字";
-                    txtKM.Text = "";
-                }
+            if (double.TryParse(strInput, out douOutput) == true)
+            {
+                caculateAnswer(2, douOutput * 10000);
+            }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtCM.Text = "";
             }
         }
 
         private void txtIn_KeyUp(object sender, KeyEventArgs e)
         {
-            double douIn; //宣告一個double變數，變數名稱叫douIn
-            {
-                strInput = txtIn.Text;
+            strInput = txtIn.Text;
 
-                if (double.TryParse(strInput, out douOutput) == true)
-                {
-                    txtCM.Text = string.Format("{0:0.##########}", douOutput * 2.54);//公分
-                    txtM.Text = string.Format("{0:0.##########}", douOutput * 0.0254);//公尺
-                    txtKM.Text = string.Format("{0:0.##########}", douOutput * 0.0000254);//公里
-                    txtFt.Text = string.Format("{0:0.##########}", douOutput * 0.0833);//英呎
-                    txtYard.Text = string.Format("{0:0.##########}", douOutput * 0.0278);//碼
-                }
-                else
-                {
-                    // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
-                    txtInfo.Text = "請輸入數字";
-                    txtIn.Text = "";
-                }
+            if (double.TryParse(strInput, out douOutput) == true)
+            {
+                caculateAnswer(3, douOutput * 2.54);
+            }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtCM.Text = "";
             }
         }
 
         private void txtFt_KeyUp(object sender, KeyEventArgs e)
         {
-            double douFt; //宣告一個double變數，變數名稱叫douFt
-            {
-                strInput = txtFt.Text;
+            strInput = txtFt.Text;
 
-                if (double.TryParse(strInput, out douOutput) == true)
-                {
-                    txtCM.Text = string.Format("{0:0.##########}", douOutput * 30.48);//公分
-                    txtM.Text = string.Format("{0:0.##########}", douOutput * 0.3048);//公尺
-                    txtKM.Text = string.Format("{0:0.##########}", douOutput * 0.0003048);//公里
-                    txtIn.Text = string.Format("{0:0.##########}", douOutput * 12);//英吋
-                    txtYard.Text = string.Format("{0:0.##########}", douOutput * 0.3333);//碼
-                }
-                else
-                {
-                    // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
-                    txtInfo.Text = "請輸入數字";
-                    txtFt.Text = "";
-                }
+            if (double.TryParse(strInput, out douOutput) == true)
+            {
+                caculateAnswer(4, douOutput * 30.48);
+            }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtCM.Text = "";
             }
         }
 
         private void txtYard_KeyUp(object sender, KeyEventArgs e)
         {
-            double douYard; //宣告一個double變數，變數名稱叫douYard
-            {
-                strInput = txtYard.Text;
+            strInput = txtYard.Text;
 
-                if (double.TryParse(strInput, out douOutput) == true)
-                {
-                    txtCM.Text = string.Format("{0:0.##########}", douOutput * 91.44);//公分
-                    txtM.Text = string.Format("{0:0.##########}", douOutput * 0.9144);//公尺
-                    txtKM.Text = string.Format("{0:0.##########}", douOutput * 0.0009144);//公里
-                    txtIn.Text = string.Format("{0:0.##########}", douOutput * 36);//英吋
-                    txtFt.Text = string.Format("{0:0.##########}", douOutput * 3);//英呎
-                }
-                else
-                {
-                    // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
-                    txtInfo.Text = "請輸入數字";
-                    txtYard.Text = "";
-                }
+            if (double.TryParse(strInput, out douOutput) == true)
+            {
+                caculateAnswer(5, douOutput * 91.44);
+            }
+            else
+            {
+                // 如果無法轉型，則是在說明文字中顯示錯誤訊息，並且將txtCM文字框清除
+                txtInfo.Text = "請輸入數字";
+                txtCM.Text = "";
             }
         }
 
@@ -185,6 +132,22 @@ namespace t
             txtIn.Text = "";
             txtFt.Text = "";
             txtYard.Text = "";
+        }
+
+        private void caculateAnswer(int 變數1, double 變數2)
+        {
+            if (變數1 != 0)
+                txtCM.Text = string.Format("{0:0.##########}", 變數2);
+            if (變數1 != 1)
+                txtM.Text = string.Format("{0:0.##########}", 變數2 / 100);
+            if (變數1 != 2)
+                txtKM.Text = string.Format("{0:0.##########}", 變數2 / 100000);
+            if (變數1 != 3)
+                txtIn.Text = string.Format("{0:0.##########}", 變數2 / 2.54);
+            if (變數1 != 4)
+                txtFt.Text = string.Format("{0:0.##########}", 變數2 / 30.48);
+            if (變數1 != 5)
+                txtYard.Text = string.Format("{0:0.##########}", 變數2 / 91.44);
         }
     }
 }
